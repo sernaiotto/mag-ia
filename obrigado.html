@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bem-vinda ao mag.IA — Baixe seus arquivos</title>
+<meta name="description" content="Sua compra do mag.IA foi confirmada. Baixe seus arquivos e siga o guia de instalação completo.">
+<meta property="og:title" content="Bem-vinda ao mag.IA">
+<meta property="og:description" content="Sua compra foi confirmada. Seus arquivos estão prontos para download.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#E6DBD0;
+  --cream-soft:#F2EAE2;
+  --black:#1F221B;
+  --red:#8A0505;
+  --plum:#522B47;
+  --gold:#C4956A;
+  --green:#5C7A5C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;color:var(--black);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1.2}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.container{max-width:780px;margin:0 auto;padding:0 24px;position:relative}
+.ornament{color:var(--red);font-size:14px;letter-spacing:0.1em}
+.icon{flex-shrink:0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'DM Sans',sans-serif;font-weight:500;font-size:14px;padding:15px 26px;border-radius:30px;transition:all 0.2s ease;cursor:pointer;border:1.5px solid transparent;text-align:center}
+.btn-primary{background:var(--red);color:var(--cream)}
+.btn-primary:hover{background:#6e0404;transform:translateY(-1px)}
+.btn-outline{background:transparent;border-color:var(--red);color:var(--red)}
+.btn-outline:hover{background:var(--red);color:var(--cream)}
+
+section{padding:80px 0;position:relative;overflow:hidden}
+.section-dark{background:var(--black);color:var(--cream)}
+.eyebrow{font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+.section-dark .eyebrow{color:#d9a99e}
+
+/* Welcome */
+.welcome{text-align:center;padding-top:100px;padding-bottom:90px}
+.welcome-deco{position:absolute;opacity:0.5}
+.deco-star1{top:50px;left:8%}
+.deco-star2{bottom:30px;right:10%}
+.deco-moon{top:30px;right:7%}
+.welcome h1{font-size:42px;margin-bottom:14px;position:relative;z-index:2}
+.welcome .sub{font-size:17px;color:#c9b8b0;position:relative;z-index:2}
+.stat-strip{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:34px;position:relative;z-index:2}
+.stat-badge{display:flex;align-items:center;gap:8px;background:rgba(230,219,208,0.08);border:1px solid rgba(230,219,208,0.25);border-radius:30px;padding:8px 16px;font-size:12.5px;color:#d8cdc5}
+.stat-badge strong{color:var(--cream);font-weight:700}
+
+/* Downloads */
+.download-card{background:#fff;border-radius:14px;padding:36px;box-shadow:0 4px 14px rgba(31,34,27,0.08);margin-top:30px;text-align:center}
+.download-icon{margin:0 auto 14px}
+.download-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.download-note{margin-top:22px;font-size:13px;color:#6a5a58}
+.download-note.secondary{color:#8a7a78;margin-top:8px}
+
+/* Steps */
+.step{display:flex;gap:18px;margin-bottom:24px;align-items:flex-start;background:#fff;border-radius:10px;padding:20px 22px;box-shadow:0 2px 8px rgba(31,34,27,0.06)}
+.step-num{width:36px;height:36px;border-radius:50%;background:var(--red);color:var(--cream);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;flex-shrink:0}
+.step-content h3{font-size:18px;margin-bottom:6px;font-family:'DM Sans',sans-serif;font-weight:500}
+.step-content p{font-size:14px;color:#4a4a3e}
+
+.alert-box{display:flex;gap:10px;align-items:flex-start;background:#fff8f0;border-left:3px solid #c97a00;border-radius:0 6px 6px 0;padding:14px 18px;margin:14px 0 0;font-size:13.5px;color:#5a4a30}
+.alert-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:#c97a00;font-weight:700;margin-bottom:4px}
+
+/* Pack cards */
+.pack-mini-grid{display:grid;gap:12px;margin-top:30px}
+.pack-mini{display:flex;align-items:flex-start;gap:14px;background:#fff;border-radius:10px;padding:18px 20px;box-shadow:0 2px 8px rgba(31,34,27,0.07);border-left:3px solid var(--red)}
+.pack-mini strong{font-family:'DM Sans',sans-serif;font-weight:600;font-size:14.5px}
+.pack-mini p{font-size:13px;color:#4a4a3e;margin-top:3px}
+
+/* Pro box */
+.pro-box{display:flex;gap:16px;align-items:flex-start;background:var(--plum);border-radius:10px;padding:26px;margin-top:24px;color:var(--cream)}
+.pro-box p{font-size:14px;color:#e2d4df;margin-bottom:10px}
+.pro-box a{color:var(--gold);border-bottom:1px solid rgba(196,149,106,0.4);font-size:13px;font-weight:500}
+
+/* FAQ rapido */
+.faq-mini{margin-top:8px}
+.faq-mini-item{display:flex;gap:12px;align-items:flex-start;padding:16px 0;border-bottom:1px solid rgba(31,34,27,0.1)}
+.faq-mini-q{font-weight:600;font-size:14px;margin-bottom:4px}
+.faq-mini-a{font-size:13px;color:#4a4a3e}
+
+.footer{background:var(--black);color:#9E8E9A;padding:50px 0 24px;font-size:13px}
+.footer .logo{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--cream);margin-bottom:8px;font-weight:600}
+.footer-tagline{color:#c9b8b0;font-size:14px;margin-bottom:18px}
+.footer-links{display:flex;gap:20px;margin:18px 0;flex-wrap:wrap}
+.footer-links a{border-bottom:1px solid transparent}
+.footer-links a:hover{border-bottom-color:#9E8E9A}
+.footer-bottom{margin-top:24px;font-size:11px;color:#5a5550;line-height:1.8}
+
+@media (max-width:768px){
+  .welcome h1{font-size:30px}
+  .download-grid{grid-template-columns:1fr}
+  section{padding:50px 0}
+  .welcome{padding-top:64px;padding-bottom:50px}
+  .welcome-deco{display:none}
+  .pro-box{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<section class="section-dark welcome">
+  <svg class="welcome-deco deco-star1" width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2l1.6 6.8L20 11l-6.4 2.2L12 20l-1.6-6.8L4 11l6.4-2.2L12 2z" fill="#C4956A"/></svg>
+  <svg class="welcome-deco deco-star2" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l1.6 6.8L20 11l-6.4 2.2L12 20l-1.6-6.8L4 11l6.4-2.2L12 2z" fill="#522B47"/></svg>
+  <svg class="welcome-deco deco-moon" width="50" height="50" viewBox="0 0 64 64" fill="none"><path d="M41 10a22 22 0 100 44c-9.5 0-18-9-18-22s8.5-22 18-22z" fill="#C4956A" opacity="0.85"/></svg>
+  <div class="container">
+    <span class="ornament">✦</span>
+    <h1>Bem-vinda ao mag.IA.</h1>
+    <p class="sub">Sua compra foi confirmada. Seus arquivos estão prontos para download.</p>
+    <div class="stat-strip">
+      <div class="stat-badge"><strong>5</strong> packs liberados</div>
+      <div class="stat-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="#C4956A" stroke-width="1.6" stroke-linejoin="round"/></svg>compra protegida por 7 dias</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 14l-2 7 7-2 9-9-5-5-9 9z" stroke="#8A0505" stroke-width="1.6" stroke-linejoin="round"/></svg>Seus arquivos</div>
+    <h2 style="font-size:30px;margin-bottom:8px">Baixe seus arquivos</h2>
+    <div class="download-card">
+      <svg class="download-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#8A0505" stroke-width="1.4"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#8A0505" stroke-width="1.3" stroke-linecap="round"/><circle cx="18" cy="18" r="5" fill="#E6DBD0" stroke="#8A0505" stroke-width="1.3"/><path d="M18 16v4M16.3 18.3L18 20l1.7-1.7" stroke="#8A0505" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="download-grid">
+        <a class="btn btn-primary" href="https://drive.google.com/drive/folders/1q4XLTJ-eK97ia0EPEoGBJnhGZBWfo621?usp=sharing">⬇ Baixar mag.IA.zip</a>
+        <a class="btn btn-outline" href="https://drive.google.com/drive/folders/1q4XLTJ-eK97ia0EPEoGBJnhGZBWfo621?usp=sharing">⬇ Baixar LEIA-ME.html</a>
+      </div>
+      <p class="download-note">Salve os arquivos em um lugar fácil de encontrar antes de instalar. O zip contém os 5 packs do mag.IA.</p>
+      <p class="download-note secondary">Guarde este link — você pode voltar aqui sempre que precisar baixar novamente.</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--cream-soft)">
+  <div class="container">
+    <div class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#8A0505" stroke-width="1.4"/><path d="M12 8v5l3 2" stroke="#8A0505" stroke-width="1.4" stroke-linecap="round"/></svg>Passo a passo</div>
+    <h2 style="font-size:30px;margin-bottom:28px">Como instalar e usar</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Acesse claude.ai</h3>
+        <p>Abra o Chrome ou Safari, digite claude.ai e pressione Enter. Crie uma conta gratuita com e-mail ou Google se ainda não tiver.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Vá em Customize &gt; Skills</h3>
+        <p>Na barra lateral esquerda do Claude, clique em Customize (abaixo de Artifacts). Depois clique em Skills.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Clique em + e escolha Upload a skill</h3>
+        <p>No topo da lista de skills, clique no botão +. No menu que aparece, escolha Upload a skill.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Faça upload do zip completo</h3>
+        <p>Na janela que abrir, arraste o mag.IA.zip diretamente. O Claude vai instalar os 5 packs de uma vez. Você não precisa extrair o arquivo.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>Confirme que as skills estão habilitadas</h3>
+        <p>Cada pack aparece na lista com uma chave (toggle) no canto superior direito. Verifique se está azul e ligada. Se estiver cinza, clique para ativar.</p>
+        <div class="alert-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-top:1px"><path d="M12 3l9 16H3L12 3z" stroke="#c97a00" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 10v3.5" stroke="#c97a00" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16.5" r="0.9" fill="#c97a00"/></svg>
+          <div><div class="alert-label">Atenção</div>Se a chave estiver cinza, o pack não funciona. Precisa ficar azul.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h3>Abra uma conversa nova e comece</h3>
+        <p>Os 5 packs estão ativos em qualquer conversa nova. Descreva o que você precisa em linguagem livre. Comece pedindo o diagnóstico do seu negócio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l1.6 6.8L20 11l-6.4 2.2L12 20l-1.6-6.8L4 11l6.4-2.2L12 2z" fill="#8A0505"/></svg>Os 5 packs</div>
+    <h2 style="font-size:26px;margin-bottom:8px">O que cada um faz</h2>
+
+    <div class="pack-mini-grid">
+      <div class="pack-mini">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#8A0505" stroke-width="1.5"/><path d="M12 8v4l2.5 1.5" stroke="#8A0505" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <div><strong>Pack 01: Diagnóstico &amp; Posicionamento</strong><p>Auditoria, preços e bio. Comece por aqui.</p></div>
+      </div>
+      <div class="pack-mini">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 4V5z" stroke="#8A0505" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        <div><strong>Pack 02: Gestão de Clientes</strong><p>DMs, confirmações, pós-atendimento, política.</p></div>
+      </div>
+      <div class="pack-mini">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="#8A0505" stroke-width="1.5"/><path d="M4 9.5h16M8 3v4M16 3v4" stroke="#8A0505" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <div><strong>Pack 03: Marketing de Conteúdo</strong><p>Calendário simbólico, roteiros e legendas.</p></div>
+      </div>
+      <div class="pack-mini">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#8A0505" stroke-width="1.5"/><path d="M12 7.5v9M9 9.7c0-1.4 1.2-2.2 3-2.2s3 .9 3 2.1c0 2.8-6 1.6-6 4.6 0 1.3 1.3 2.4 3 2.4s3-.9 3-2.3" stroke="#8A0505" stroke-width="1.3" stroke-linecap="round"/></svg>
+        <div><strong>Pack 04: Financeiro</strong><p>Receita, despesa, metas e fechamento mensal.</p></div>
+      </div>
+      <div class="pack-mini">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3v6M12 21v-6M5.5 7l4 3M18.5 7l-4 3M5.5 17l4-3M18.5 17l-4-3" stroke="#8A0505" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="#8A0505" stroke-width="1.5"/></svg>
+        <div><strong>Pack 05: Expansão &amp; Produtos</strong><p>Curso, deck, podcast, mentoria e e-book.</p></div>
+      </div>
+    </div>
+
+    <div class="pro-box">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="flex-shrink:0"><circle cx="12" cy="12" r="9.5" stroke="#C4956A" stroke-width="1.4"/><path d="M12 5l1.4 5.6L19 12l-5.6 1.4L12 19l-1.4-5.6L5 12l5.6-1.4L12 5z" fill="#C4956A" opacity="0.9"/></svg>
+      <div>
+        <p>O plano gratuito funciona com todos os packs. Com Claude Pro, o Claude salva memórias entre conversas — ele vai lembrando do seu negócio sem você precisar repetir nada.</p>
+        <a href="https://claude.ai/referral/CyjOJBjkxQ?s=cowork&v=apps">Assinar Claude Pro →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--cream-soft)">
+  <div class="container">
+    <div class="eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#8A0505" stroke-width="1.4"/><path d="M9.2 9.2a2.8 2.8 0 115.6 0c0 1.9-2.8 2-2.8 4.3" stroke="#8A0505" stroke-width="1.4" stroke-linecap="round"/><circle cx="12" cy="17" r="0.8" fill="#8A0505"/></svg>Se travar</div>
+    <h2 style="font-size:26px;margin-bottom:4px">FAQ rápido</h2>
+    <div class="faq-mini">
+      <div class="faq-mini-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="margin-top:2px"><path d="M12 2l1.6 6.8L20 11l-6.4 2.2L12 20l-1.6-6.8L4 11l6.4-2.2L12 2z" fill="#8A0505" opacity="0.7"/></svg>
+        <div><div class="faq-mini-q">O Claude não está usando os packs</div><div class="faq-mini-a">Verifique se a chave está azul e abra uma conversa nova.</div></div>
+      </div>
+      <div class="faq-mini-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="margin-top:2px"><path d="M12 2l1.6 6.8L20 11l-6.4 2.2L12 20l-1.6-6.8L4 11l6.4-2.2L12 2z" fill="#8A0505" opacity="0.7"/></svg>
+        <div><div class="faq-mini-q">Não acho o Customize</div><div class="faq-mini-a">Barra lateral esquerda, abaixo de Artifacts.</div></div>
+      </div>
+      <div class="faq-mini-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="margin-top:2px"><path d="M12 2l1.6 6.8L20 11l-6.4 2.2L12 20l-1.6-6.8L4 11l6.4-2.2L12 2z" fill="#8A0505" opacity="0.7"/></svg>
+        <div><div class="faq-mini-q">Posso usar no celular?</div><div class="faq-mini-a">Sim, app Claude iOS ou Android, mesmo caminho.</div></div>
+      </div>
+      <div class="faq-mini-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="margin-top:2px"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z" stroke="#8A0505" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <div><div class="faq-mini-q">Posso pedir reembolso?</div><div class="faq-mini-a">Sim. Você tem 7 dias de garantia direto pela Kiwify, sem perguntas.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="logo">mag.IA</div>
+    <div class="footer-tagline">Administre seu negócio espiritual como se fosse mágica.</div>
+    <div>Criado por Loma Sernaiotto</div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/magiacomclaude">Instagram</a>
+      <a href="https://sernaiotto.com">sernaiotto.com</a>
+    </div>
+    <div class="footer-bottom">
+      © 2025 mag.IA. Todos os direitos reservados.<br>
+      mag.IA não é afiliado à Anthropic. Claude é um produto da Anthropic.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

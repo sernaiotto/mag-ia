@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>html,body{margin:0;padding:0;background:transparent}body{display:flex;justify-content:center;padding:14px}</style>
+</head>
+<body>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{max-width:680px;font-family:sans-serif;width:100%}
+.label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#8A0505;font-weight:600;margin-bottom:12px;padding:0 4px}
+.device{background:#1A1018;border-radius:16px;padding:12px}
+.device-bar{display:flex;align-items:center;gap:6px;padding:8px 10px;background:#241820;border-radius:8px 8px 0 0;margin-bottom:1px}
+.device-dot{width:7px;height:7px;border-radius:50%}
+.device-url{flex:1;background:#1A1018;border-radius:4px;height:18px;display:flex;align-items:center;padding:0 8px;font-size:9px;color:#6a5a68;margin:0 8px}
+.chat-wrap{background:#faf9f7;border-radius:0 0 8px 8px;overflow:hidden;min-height:520px;display:flex;flex-direction:column}
+.chat-layout{display:flex;flex:1}
+.sidebar{width:180px;background:#f5f4f1;border-right:0.5px solid #e8e4df;padding:10px;flex-shrink:0}
+.sidebar-header{font-size:10px;font-weight:600;color:#1F221B;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between}
+.sidebar-new{background:#1F221B;color:#E6DBD0;font-size:9px;padding:3px 8px;border-radius:3px}
+.sidebar-item{padding:5px 6px;border-radius:4px;font-size:10px;color:#6a6058;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sidebar-item.active{background:#E6DBD0;color:#1F221B;font-weight:500}
+.sidebar-skill-badge{display:inline-block;font-size:8px;background:#522B47;color:#E6DBD0;padding:1px 5px;border-radius:2px;margin-top:3px}
+.chat-main{flex:1;display:flex;flex-direction:column}
+.chat-header{padding:8px 12px;border-bottom:0.5px solid #e8e4df;font-size:11px;color:#6a6058;display:flex;align-items:center;gap:6px}
+.skill-pill{background:#E6DBD0;color:#8A0505;font-size:9px;font-weight:600;padding:2px 7px;border-radius:10px;border:1px solid #c9b0a8}
+.chat-messages{flex:1;padding:12px;display:flex;flex-direction:column;gap:10px}
+.msg-user{display:flex;justify-content:flex-end}
+.msg-user-bubble{background:#E6DBD0;border-radius:12px 12px 2px 12px;padding:7px 10px;max-width:72%;font-size:11px;color:#1F221B;line-height:1.5}
+.msg-claude{display:flex;gap:7px;align-items:flex-start}
+.msg-avatar{width:22px;height:22px;border-radius:50%;background:#1F221B;display:flex;align-items:center;justify-content:center;font-size:8px;color:#E6DBD0;flex-shrink:0;margin-top:1px;font-weight:600}
+.msg-bubble{background:#fff;border:0.5px solid #e8e4df;border-radius:2px 12px 12px 12px;padding:8px 10px;max-width:88%;font-size:11px;color:#1F221B;line-height:1.6}
+.curso-card{background:#1F221B;border-radius:8px;padding:10px;margin-top:6px}
+.curso-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px}
+.curso-titulo{font-size:12px;font-weight:600;color:#E6DBD0;line-height:1.3}
+.curso-preco{font-size:11px;font-weight:600;color:#8A0505;background:#241820;padding:3px 8px;border-radius:4px;white-space:nowrap}
+.curso-desc{font-size:9px;color:#9E9088;margin-bottom:8px;line-height:1.5}
+.modulos-label{font-size:8px;text-transform:uppercase;letter-spacing:0.08em;color:#8A0505;font-weight:600;margin-bottom:5px}
+.modulo{display:flex;gap:8px;align-items:flex-start;padding:5px 0;border-bottom:0.5px solid #2d1f2a}
+.modulo:last-child{border-bottom:none}
+.modulo-num{font-size:9px;font-weight:600;color:#8A0505;width:16px;flex-shrink:0}
+.modulo-content{flex:1}
+.modulo-title{font-size:9px;font-weight:500;color:#E6DBD0}
+.modulo-aulas{font-size:8px;color:#6a5a68;margin-top:1px}
+.curso-divider{border:none;border-top:0.5px solid #2d1f2a;margin:7px 0}
+.curso-acoes{display:flex;gap:6px}
+.curso-btn{flex:1;text-align:center;font-size:8px;font-weight:600;padding:5px;border-radius:4px}
+.curso-btn.primary{background:#8A0505;color:#E6DBD0}
+.curso-btn.secondary{background:#241820;color:#9E9088;border:0.5px solid #3a2030}
+.chat-input{padding:8px 12px;border-top:0.5px solid #e8e4df;display:flex;align-items:center;gap:8px}
+.chat-input-field{flex:1;background:#f0ede8;border-radius:20px;padding:6px 12px;font-size:10px;color:#9E9088}
+.send-btn{width:24px;height:24px;background:#8A0505;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+</style>
+
+<div class="wrap">
+  <div class="label">✦ Pack 5 — Expansão &amp; Criação de Produtos</div>
+  <div class="device">
+    <div class="device-bar">
+      <div class="device-dot" style="background:#ff5f57"></div>
+      <div class="device-dot" style="background:#ffbd2e"></div>
+      <div class="device-dot" style="background:#28ca41"></div>
+      <div class="device-url">claude.ai</div>
+    </div>
+    <div class="chat-wrap">
+      <div class="chat-layout">
+        <div class="sidebar">
+          <div class="sidebar-header">mag.IA <span class="sidebar-new">+ novo</span></div>
+          <div style="font-size:8px;text-transform:uppercase;letter-spacing:0.07em;color:#9E9088;margin-bottom:4px;padding:0 2px">Skills ativas</div>
+          <div class="sidebar-item">pack1-diagnostico</div>
+          <div class="sidebar-item">pack2-gestao</div>
+          <div class="sidebar-item">pack3-marketing</div>
+          <div class="sidebar-item">pack4-financeiro</div>
+          <div class="sidebar-item active">pack5-expansao<div><span class="sidebar-skill-badge">skill ativa</span></div></div>
+          <div style="border-top:0.5px solid #e8e4df;margin:8px 0"></div>
+          <div style="font-size:8px;text-transform:uppercase;letter-spacing:0.07em;color:#9E9088;margin-bottom:4px;padding:0 2px">Histórico</div>
+          <div class="sidebar-item">Curso tarot básico</div>
+          <div class="sidebar-item">Oráculo Umbanda</div>
+        </div>
+        <div class="chat-main">
+          <div class="chat-header">
+            <span style="font-size:13px;color:#8A0505">✦</span>
+            <span>mag.IA ativo</span>
+            <span class="skill-pill">Pack 5 — Expansão</span>
+          </div>
+          <div class="chat-messages">
+            <div class="msg-user">
+              <div class="msg-user-bubble">quero criar um curso de tarot para iniciantes, tenho esse sonho há anos</div>
+            </div>
+            <div class="msg-claude">
+              <div class="msg-avatar">C</div>
+              <div class="msg-bubble">Qual é a transformação que a aluna vai ter ao terminar? O que ela vai conseguir fazer que não conseguia antes?</div>
+            </div>
+            <div class="msg-user">
+              <div class="msg-user-bubble">ela vai conseguir fazer leituras pra ela mesma com confiança, sem depender de tarólogas</div>
+            </div>
+            <div class="msg-claude">
+              <div class="msg-avatar">C</div>
+              <div class="msg-bubble">
+                Aqui está a estrutura do seu curso. Baseei no seu trabalho com Umbanda e nas suas clientes em transição de vida.
+                <div class="curso-card">
+                  <div class="curso-header">
+                    <div class="curso-titulo">Cartas pra Mim<br>Tarot para quem quer se ler</div>
+                    <div class="curso-preco">R$297</div>
+                  </div>
+                  <div class="curso-desc">Para mulheres que sempre quiseram entender as cartas mas nunca souberam por onde começar — sem memorizar significados, sem depender de ninguém.</div>
+                  <div class="modulos-label">Estrutura — 4 módulos</div>
+                  <div class="modulo">
+                    <span class="modulo-num">01</span>
+                    <div class="modulo-content">
+                      <div class="modulo-title">A linguagem das cartas</div>
+                      <div class="modulo-aulas">4 aulas · Arcanos Maiores como arquétipos</div>
+                    </div>
+                  </div>
+                  <div class="modulo">
+                    <span class="modulo-num">02</span>
+                    <div class="modulo-content">
+                      <div class="modulo-title">Aprender a perguntar</div>
+                      <div class="modulo-aulas">3 aulas · Como formular perguntas para as cartas</div>
+                    </div>
+                  </div>
+                  <div class="modulo">
+                    <span class="modulo-num">03</span>
+                    <div class="modulo-content">
+                      <div class="modulo-title">Sua primeira leitura</div>
+                      <div class="modulo-aulas">4 aulas · Tiragens simples, diário de cartas</div>
+                    </div>
+                  </div>
+                  <div class="modulo">
+                    <span class="modulo-num">04</span>
+                    <div class="modulo-content">
+                      <div class="modulo-title">Leitura como prática espiritual</div>
+                      <div class="modulo-aulas">3 aulas · Integrar com Umbanda e rituais</div>
+                    </div>
+                  </div>
+                  <div class="curso-divider"></div>
+                  <div class="curso-acoes">
+                    <div class="curso-btn primary">Gerar página de vendas →</div>
+                    <div class="curso-btn secondary">Ajustar estrutura</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="chat-input">
+            <div class="chat-input-field">Quer que eu escreva a página de vendas completa agora?</div>
+            <div class="send-btn"><span style="font-size:12px;color:#E6DBD0">→</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
